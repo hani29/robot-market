@@ -28,6 +28,7 @@ code {
   display: flex;
   background-color: #415165;
   padding: 0.7rem;
+  align-items: center;
 }
 .header > h1 {
   color: #fff;

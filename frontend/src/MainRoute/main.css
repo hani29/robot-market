@@ -24,7 +24,7 @@
 
 .card-column {
     float: left;
-    width: 25%;
+    width: 23%;
     padding: 10px;
   }
   
@@ -39,7 +39,7 @@
   .title{
    color: #0ebbd0;
    font-weight: 700;
-   font-size: 20px;
+   font-size: 15px;
   }
 
   .sub-title {
@@ -62,12 +62,24 @@
     background-color: #415165;
     border: none;
     color: white;
-    padding: 13px 57px;
+    padding: 13px 42px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     cursor: pointer;
     margin: 20px 0px;
+  }
+
+  .form-control{
+      height: 45px;
+      border-radius: 5px;
+      margin-left: 25px;
+  }
+
+  .Dropdown-container{
+      display: flex;
+      align-items: center;
+      justify-content: end;
   }
   
   /* Responsive columns */
