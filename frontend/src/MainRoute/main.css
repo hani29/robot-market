@@ -1,0 +1,81 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+}
+
+.left-container{
+    width: 70%;
+}
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    transition: 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .card-container {
+    padding: 2px 16px;
+  }
+
+.card-column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+  }
+  
+  .card-row {margin: 0px 0px 0px 5px;}
+  
+  .card-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .title{
+   color: #0ebbd0;
+   font-weight: 700;
+   font-size: 20px;
+  }
+
+  .sub-title {
+    color: #767474;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    margin-right:20px;
+  }
+
+  .sub-title-text{
+    color: #415165;
+    font-weight: 500;
+  }
+  table > tr {
+      text-align: initial;
+  }
+
+  .button {
+    background-color: #415165;
+    border: none;
+    color: white;
+    padding: 13px 57px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 0px;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .card-column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
