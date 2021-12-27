@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  background-color: #415165;
+  padding: 0.7rem;
+}
+.header > h1 {
+  color: #fff;
+}
