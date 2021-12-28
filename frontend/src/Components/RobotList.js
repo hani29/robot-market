@@ -1,6 +1,6 @@
 import React from "react";
 import defaultImage from "./../assets/images/dummy.jpg";
-import {formatOfDate, formatOfPrice} from "../Common/common";
+import { formatOfDate, formatOfPrice } from "../Common/common";
 
 const RobotList = (props) => {
   const { robot, handleAddToCart } = props;
@@ -37,6 +37,7 @@ const RobotList = (props) => {
             <td className="sub-title-text">{formatOfDate(robot.createdAt)}</td>
           </tr>
         </table>
+        {/* Add to cart and disable button when ut is out of stock */}
         <button
           className="button"
           onClick={() => handleAddToCart(robot)}

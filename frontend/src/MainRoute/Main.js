@@ -24,7 +24,8 @@ export default function Main() {
     return jsonData;
   };
 
-  const collectAllMaterials = async (data) => {
+  //Get all Material list in sorted format
+  const getAllMaterials = async (data) => {
     const uniqueMaterials = [];
     const uniqueMaterialsTmp = [];
 
@@ -34,9 +35,13 @@ export default function Main() {
         uniqueMaterials.push(robot.material);
       }
     });
+
+    //sort material
     uniqueMaterials.sort((a, b) => {
       return a > b ? 1 : -1;
     });
+
+    //Bringing materials in value and label form so that we loop in dropdown
     uniqueMaterials.map((op) => {
       uniqueMaterialsTmp.push({
         value: op,
@@ -47,7 +52,7 @@ export default function Main() {
     return uniqueMaterialsTmp;
   };
 
-  /* Life Cycle Methods */
+  /* Life Cycle Methods, This is for componentDidMount().  */
   useEffect(() => {
     //set loader as true till data loads.
     setLoading(true);
@@ -56,10 +61,8 @@ export default function Main() {
       // Add UniqueID to the data
       const finalData = await getData(Data);
       const dataJson = finalData.data;
-      const listOfMaterials = await collectAllMaterials(dataJson);
-
-      console.log(listOfMaterials);
-
+      // get list of material initially
+      const listOfMaterials = await getAllMaterials(dataJson);
       setRobotData(dataJson);
       setMaterial(listOfMaterials);
 
@@ -70,10 +73,12 @@ export default function Main() {
     })();
   }, []);
 
+  //Hold the selected value.
   const handleDropdown = (selectedMaterial) => {
     setSelectedMaterial(selectedMaterial);
   };
 
+  //To filter Robot data when material is choosed.
   const filteredProducts = robotData
     .filter(function (roboProd) {
       if (roboProd.material == selectedMaterial && selectedMaterial != "All") {
@@ -91,12 +96,8 @@ export default function Main() {
   // Robot being added to cart
   const handleAddToCart = (robot) => {
     // Find if selected Robot is in the Cart list and the selected Robot from the Robot list
-    const checkCart = cart.find(
-      (robotCart) => robotCart.id === robot.id
-    );
-    const checkRobot = robotData.find(
-      (robotItem) => robotItem.id === robot.id
-    );
+    const checkCart = cart.find((robotCart) => robotCart.id === robot.id);
+    const checkRobot = robotData.find((robotItem) => robotItem.id === robot.id);
     const checkCurrentRobot = currentRobots.find(
       (robotItem) => robotItem.id === robot.id
     );
@@ -108,7 +109,7 @@ export default function Main() {
       return;
     }
 
-    // If robot is in the cart then increase the stock by one, otherwise creeate a new robot in cart
+    // If robot is in the cart then increase the stock by one, otherwise create a new robot in cart
     if (checkCart) {
       setCart(
         cart.map((robotCart) =>
@@ -167,12 +168,8 @@ export default function Main() {
 
   const handleRemoveFromCart = (robot) => {
     // Find if selected Robot is in the Cart list and the selected Robot from the Robot list
-    const checkCart = cart.find(
-      (robotCart) => robotCart.id === robot.id
-    );
-    const checkRobot = robotData.find(
-      (robotItem) => robotItem.id === robot.id
-    );
+    const checkCart = cart.find((robotCart) => robotCart.id === robot.id);
+    const checkRobot = robotData.find((robotItem) => robotItem.id === robot.id);
     const checkCurrentRobot = currentRobots.find(
       (robotItem) => robotItem.id === robot.id
     );
@@ -236,6 +233,7 @@ export default function Main() {
         {Loading && <p>Loading data ...</p>}
         {!Loading && robotData.length > 0 && (
           <React.Fragment>
+            {/* filter material Component */}
             <div className="Dropdown-container">
               <div className="sub-title-text">Filter By Material: </div>
               <Dropdown
@@ -246,6 +244,7 @@ export default function Main() {
                 onChange={handleDropdown}
               />
             </div>
+            {/* Robot card list component */}
             <div class="card-row">
               {filteredProducts.map((robot) => (
                 <RobotList
@@ -259,6 +258,7 @@ export default function Main() {
         )}
       </div>
 
+      {/* Cart list component */}
       <div className="right-container">
         <Cart
           cart={cart}

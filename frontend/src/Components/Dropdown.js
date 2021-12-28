@@ -1,12 +1,6 @@
 import React from "react";
 
-const Dropdown = ({
-  value,
-  data,
-  placeholder,
-  placeholderValue,
-  onChange,
-}) => {
+const Dropdown = ({ value, data, placeholder, placeholderValue, onChange }) => {
   const handleChange = (event) => {
     const { value } = event.target;
     onChange(value);
@@ -14,6 +8,7 @@ const Dropdown = ({
 
   return (
     <div>
+      {/* Dropdown to map materials */}
       <select value={value} className="form-control" onChange={handleChange}>
         <option value={placeholderValue}>{placeholder}</option>
         {data.map((item, key) => (
