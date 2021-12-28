@@ -5,7 +5,6 @@ const Dropdown = ({
   data,
   placeholder,
   placeholderValue,
-  styleClass,
   onChange,
 }) => {
   const handleChange = (event) => {
@@ -14,7 +13,7 @@ const Dropdown = ({
   };
 
   return (
-    <div className={`form-group ${styleClass}`}>
+    <div>
       <select value={value} className="form-control" onChange={handleChange}>
         <option value={placeholderValue}>{placeholder}</option>
         {data.map((item, key) => (

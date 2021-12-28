@@ -1,93 +1,144 @@
-.Container{
+.Container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 15px;
+}
+
+.left-container {
+  width: 70%;
+  margin-right: 30px;
+}
+
+.right-container {
+  width: 30%;
+  margin-top: 86px;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  padding: 2px 16px;
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin: 3rem auto;
+}
+
+.title {
+  color: #0ebbd0;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.sub-title {
+  color: #767474;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.sub-title-text {
+  color: #415165;
+  font-weight: 500;
+  font-size: 15px;
+}
+table > tr {
+  text-align: initial;
+}
+
+.button {
+  background-color: #415165;
+  border: none;
+  color: white;
+  padding: 13px 40px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px 0px;
+}
+
+button:disabled,
+button[disabled] {
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.form-control {
+  height: 45px;
+  border-radius: 5px;
+  margin-left: 25px;
+}
+
+.Dropdown-container {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.cart-card {
+  box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+  margin-bottom: 20px;
+  padding: 15px;
+}
+
+.cart-robo {
+  height: 150px;
+  width: 150px;
+  border: 1px solid black;
+  margin-right: 20px;
+}
+
+.cart-sub-container {
+  display: flex;
+  align-items: center;
+}
+
+.cart-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 0px;
+}
+
+.cart-button {
+  border-radius: 50%;
+  box-shadow: none;
+  height: 50px;
+  width: 50px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.text-center {
+  text-align: center;
+  font-size: 24px;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .Container {
     display: flex;
     flex-direction: column;
-}
-
-.left-container{
-    width: 70%;
-}
-
-  .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    padding: 16px;
-    text-align: center;
-    transition: 0.3s;
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-  
-  .card-container {
-    padding: 2px 16px;
-  }
-
-.card-column {
-    float: left;
-    width: 23%;
-    padding: 10px;
-  }
-  
-  .card-row {margin: 0px 0px 0px 5px;}
-  
-  .card-row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-
-  .title{
-   color: #0ebbd0;
-   font-weight: 700;
-   font-size: 15px;
-  }
-
-  .sub-title {
-    color: #767474;
-    font-size: 15px;
-    display: flex;
     align-items: center;
-    margin-right:20px;
   }
 
-  .sub-title-text{
-    color: #415165;
-    font-weight: 500;
+  .right-container {
+    width: 90%;
   }
-  table > tr {
-      text-align: initial;
-  }
-
-  .button {
-    background-color: #415165;
-    border: none;
-    color: white;
-    padding: 13px 42px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 20px 0px;
-  }
-
-  .form-control{
-      height: 45px;
-      border-radius: 5px;
-      margin-left: 25px;
-  }
-
-  .Dropdown-container{
-      display: flex;
-      align-items: center;
-      justify-content: end;
-  }
-  
-  /* Responsive columns */
-  @media screen and (max-width: 600px) {
-    .card-column {
-      width: 100%;
-      display: block;
-      margin-bottom: 20px;
-    }
-  }
-  
+}
